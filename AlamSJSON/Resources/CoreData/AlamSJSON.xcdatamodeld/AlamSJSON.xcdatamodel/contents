@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="deal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Deal" inverseName="categories" inverseEntity="Deal" syncable="YES"/>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoryValue" inverseName="category" inverseEntity="CategoryValue" syncable="YES"/>
+    </entity>
+    <entity name="CategoryValue" representedClassName="CategoryValue" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="values" inverseEntity="Category" syncable="YES"/>
+    </entity>
+    <entity name="Date" representedClassName="Date" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="deal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Deal" inverseName="dates" inverseEntity="Deal" syncable="YES"/>
+    </entity>
+    <entity name="Deal" representedClassName="Deal" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="deal" inverseEntity="Category" syncable="YES"/>
+        <relationship name="dates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Date" inverseName="deal" inverseEntity="Date" syncable="YES"/>
+        <relationship name="overviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Overview" inverseName="deal" inverseEntity="Overview" syncable="YES"/>
+    </entity>
+    <entity name="DealPreview" representedClassName="DealPreview" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Overview" representedClassName="Overview" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="deal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Deal" inverseName="overviews" inverseEntity="Deal" syncable="YES"/>
+    </entity>
+    <entity name="Suggestion" representedClassName="Suggestion" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="-18" positionY="-315" width="128" height="118"/>
+        <element name="CategoryValue" positionX="234" positionY="-264" width="128" height="103"/>
+        <element name="Date" positionX="16" positionY="-135" width="128" height="88"/>
+        <element name="Deal" positionX="-396" positionY="-216" width="128" height="148"/>
+        <element name="DealPreview" positionX="-369" positionY="-360" width="128" height="88"/>
+        <element name="Overview" positionX="-18" positionY="60" width="128" height="103"/>
+        <element name="Suggestion" positionX="-189" positionY="-378" width="128" height="75"/>
+    </elements>
+</model>
